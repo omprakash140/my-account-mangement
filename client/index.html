@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Getting started with JSON Form</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/datatable/jquery.dataTables.css" />
+</head>
+
+<body>
+    <header class="header">
+        <h1>Bal Sheet</h1>
+        <!-- <form id="update-data"><select name="acclist" id="acclist"></select><button>Apply</button></form> -->
+        <select name="acclist" id="acclist">
+        </select>
+        <select name="monthlyAccList" id="monthlyAccList">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+        </select>
+        <ul class="header-menu-list">
+            <li>
+                <a href="/">Home Page</a>
+            </li>
+            <li>
+                <a href="/leger">Leger</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <table id="myTable" class="display">
+            <thead id="myTableHead">
+                <tr>
+                    <th>Sr No</th>
+                    <th>Particular</th>
+                    <th>Dr</th>
+                    <th>Particular</th>
+                    <th>Cr</th>
+                </tr>
+            </thead>
+            <tbody id="myTableBody">
+                <!-- <tr>
+                        <td>Row 1 Data 1</td>
+                        <td>Row 1 Data 2</td>
+                    </tr>
+                    <tr>
+                        <td>Row 2 Data 1</td>
+                        <td>Row 2 Data 2</td>
+                    </tr> -->
+            </tbody>
+        </table>
+    </main>
+    <div class="form-container">
+        <form></form>
+    </div>
+    <div id="res" class="alert"></div>
+    <script src="/js/common/jquery.min.js"></script>
+    <script src="/js/datatable/jquery.dataTables.js"></script>
+    <script src="/js/common/utils.js"></script>
+    <script src="/js/form-schema/schema.js"></script>
+    <script src="/js/form-schema/underscore.js"></script>
+    <script src="/js/form-schema/jsv.js"></script>
+    <script src="/js/form-schema/jsonform.js"></script>
+    <script src="/js/script.js">  </script>
+    <script src="/js/api.js"></script>
+    <script src="/js/render.js"></script>
+    <script src="/js/biz.js"></script>
+    <script src="/js/init.js"></script>
+</body>
+
+</html>
