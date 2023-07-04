@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const transcationRouter = require('./server/routes/transcation');
 const path = require('path');
+const PORT = 5500;
 
 const url = "mongodb+srv://om140user:om140pass@cluster0.txmq2h3.mongodb.net/?retryWrites=true&w=majority";
 const app = express();
@@ -25,4 +26,4 @@ routes.get("/", (req, res) => {
 })
 
 app.use(express.static(path.join(__dirname, 'client')));
-app.listen(9000, () => console.log('listening 9000'));
+app.listen(PORT, () => console.log(`listening ${PORT}`));
