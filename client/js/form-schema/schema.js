@@ -123,7 +123,7 @@ const schema = {
         }
     }
 }
-function getLastWeeksDate(daycount) {
+function getLastWeeksDate(daycount = 0) {
     const now = new Date();
 
     return new Date(now.getFullYear(), now.getMonth(), now.getDate() - daycount);
