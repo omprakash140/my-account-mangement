@@ -106,7 +106,6 @@ const schema = {
         } else if (values.crAcc == values.drAcc) {
             alert("Cr Acc should not be same")
         } else {
-            $('#res').html(JSON.stringify(values));
             if (location.pathname.includes("/update/")) {
                 sendApi("PUT", "/user/" + location.pathname.split("/")[2], values).then(function (data) {
                     console.log("Form Submitted", data);
@@ -115,8 +114,10 @@ const schema = {
                 });
             } else {
                 sendApi("POST", "/transaction", values).then(function (data) {
+                    $('#res').html(JSON.stringify(data) );
                     console.log("Form Submitted", data);
                 }).catch(function (err) {
+                    $('#res').html(JSON.stringify(err ));
                     alert(err.message)
                 });
             }
