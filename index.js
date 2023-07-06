@@ -16,7 +16,10 @@ mongoose.connect(url)
 mongoose.connection.once('open', () => {
     console.log("connection open");
 })
-
+app.get('/ip',function(req, res) {
+    const ipAddress = req.socket.remoteAddress;
+    res.send(ipAddress);
+});
 
 routes.use("/transaction", transcationRouter);
 
