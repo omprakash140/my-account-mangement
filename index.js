@@ -26,6 +26,8 @@ routes.use("/transaction", transcationRouter);
 
 routes.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'index.html'));
+}).get("/admin/", (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'index.html'));
 })
 
 app.use(express.static(path.join(__dirname, 'client')));

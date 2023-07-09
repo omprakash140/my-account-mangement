@@ -5,6 +5,12 @@ function renderTranscation(data) {
     var drdata = [], crdata = [];
     var bodyhtm = '', crhtm = '';
     var selecteddata = [];
+    var classeditHtm = 'style="display: none;"'
+    if (location.pathname.includes("/admin")) {
+        classeditHtm = 'style="display: block;"'
+    }
+    // var editHtm = `<td ${classeditHtm}> Edit </td>`
+    var editHtm = ``
     var drtotal = 0, crtotal = 0 , transferTotal = 0;
     data.forEach(each => {
         if (selectedMonth == new Date(each.date).getMonth()) {
@@ -26,9 +32,9 @@ function renderTranscation(data) {
             drtotal += (utils.amount(eachDr.amount));
         }
         crtotal += (utils.amount(eachCr.amount));
-        bodyhtm += `<tr><td>${prefixedZero(srNo)}</td>
-        <td>${utils.data(eachDr.particular)}</td><td>${utils.data(eachDr.amount)}</td>
-        <td>${utils.data(eachCr.particular)}</td><td>${utils.data(eachCr.amount)}</td></tr>`;
+        bodyhtm += `<tr><td>${ (each.dateOfTransfer) || prefixedZero(srNo) }</td>
+        <td>${utils.data(eachDr.particular)}</td><td>${utils.data(eachDr.amount)}</td> ${editHtm}
+        <td>${utils.data(eachCr.particular)}</td><td>${utils.data(eachCr.amount)}</td> ${editHtm} </tr> `;
         srNo++;
         /* end  */
     });

@@ -45,6 +45,10 @@ const schema = {
             title: 'Particular',
             required: true,
         },
+        dateOfTransfer: {
+            title: 'Date of transfer',
+            required: true,
+        },
         isTransfer: {
             type: 'boolean',
             title: 'Is Transfer (Exchange).',
@@ -82,6 +86,10 @@ const schema = {
             type: "text"
         },
         {
+            key: 'dateOfTransfer',
+            type: "date"
+        },
+        {
             key: "isTransfer",
             inline: true,
             "inlinetitle": "Exchange Money."
@@ -103,7 +111,8 @@ const schema = {
     ],
     onSubmit: function (errors, values) {
         console.log(errors, values);
-        values.date = utils.customDate();
+        // values.date = utils.customDate();
+        values.date = new Date();
         if (errors) {
         } else if (values.crAcc == values.drAcc) {
             alert("Cr Acc should not be same")

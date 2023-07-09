@@ -23,6 +23,10 @@ const transcation = new mongoose.Schema({
     date: {
         required: true,
         type: 'string'
+    },
+    dateOfTransfer: {
+        required: true,
+        type: 'string'
     }
 })
 
