@@ -17,6 +17,9 @@ const transcation = new mongoose.Schema({
         required: true,
         type: 'string'
     },
+    isTransfer: {
+        type: 'boolean'
+    },
     date: {
         required: true,
         type: 'string'

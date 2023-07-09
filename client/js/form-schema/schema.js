@@ -45,10 +45,11 @@ const schema = {
             title: 'Particular',
             required: true,
         },
-        /* isDisabled: {
+        isTransfer: {
             type: 'boolean',
-            title: 'Is Disabled',
+            title: 'Is Transfer (Exchange).',
         },
+        /* 
         healthIssue: {
             "type": "checkboxes",
             "title": "Pls select the health issue",
@@ -79,13 +80,14 @@ const schema = {
         {
             key: 'particular',
             type: "text"
-        }/* ,
-        {
-            key: "isDisabled",
-            inline: true,
-            "inlinetitle": "Are you disabled"
-
         },
+        {
+            key: "isTransfer",
+            inline: true,
+            "inlinetitle": "Exchange Money."
+        }
+        /* ,
+        
         {
             key: "healthIssue",
             inline: true
@@ -101,7 +103,7 @@ const schema = {
     ],
     onSubmit: function (errors, values) {
         console.log(errors, values);
-        values.date = getLastWeeksDate();
+        values.date = utils.customDate();
         if (errors) {
         } else if (values.crAcc == values.drAcc) {
             alert("Cr Acc should not be same")
@@ -116,6 +118,7 @@ const schema = {
                 sendApi("POST", "/transaction", values).then(function (data) {
                     $('#res').html(JSON.stringify(data) );
                     console.log("Form Submitted", data);
+                    api.transaction();
                 }).catch(function (err) {
                     $('#res').html(JSON.stringify(err ));
                     alert(err.message)
@@ -123,9 +126,4 @@ const schema = {
             }
         }
     }
-}
-function getLastWeeksDate(daycount = 0) {
-    const now = new Date();
-
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate() - daycount);
 }

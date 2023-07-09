@@ -1,3 +1,7 @@
+const utils = {};
+const api = {};
+const biz = {};
+const render = {};
 function sendApi(method, url, data) {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
@@ -20,6 +24,10 @@ function sendApi(method, url, data) {
 }
 function initFormSchema(obj) {
     $('form').jsonForm(obj);
+
+    $('[name=drAcc]').select2();
+    $('[name=crAcc]').select2();
+
 }
 var table = null;
 function initDataTable(id, obje) {
@@ -31,6 +39,21 @@ function prefixedZero(num, size = 2) {
     while (num.length < size) num = "0" + num;
     return num;
 }
-const api = {};
-const biz = {};
-const render = {};
+
+
+utils.data = function (data) {
+    return data || " - "
+}
+utils.amount = function (amt) {
+    return amt ? parseFloat(amt) : 0
+}
+
+utils.customDate = function (daycount = 0) {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate() - daycount);
+}
+utils.monthStartDate = function () {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth());
+}
+
