@@ -39,15 +39,15 @@ function renderTranscation(data) {
         /* end  */
     });
     var totalUseAmount = drtotal + transferTotal ;
-    bodyhtm += `<tr><td> ${prefixedZero(srNo)} </td>
+    bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
     <td>Total Transfer </td><td>${transferTotal}</td>
     <td>Total Transfer </td><td> - </td>`;
 
-    bodyhtm += `<tr><td> ${prefixedZero(srNo + 1 )} </td>
+    bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
     <td>Total Expense </td><td>${drtotal}</td>
     <td>Total Credit </td><td>${crtotal}</td>`;
 
-    bodyhtm += `<tr><td> ${prefixedZero(srNo + 2)} </td>
+    bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
     <td> - </td><td> - </td>
     <td> Balance </td><td>${(crtotal - totalUseAmount)}</td>`;
 

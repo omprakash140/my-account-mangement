@@ -56,4 +56,14 @@ utils.monthStartDate = function () {
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth());
 }
+utils.monthEndDate = function () {
+    var date = new Date(), y = date.getFullYear(), m = date.getMonth();
+    var firstDay = new Date(y, m, 1);
+    var lastDay = new Date(y, m + 1, 0);
+    return utils.parseDateStr(lastDay);
+}
+
+utils.parseDateStr = function (date) {
+    return new Date().getFullYear() + "-" + prefixedZero(date.getMonth() + 1, 2) + "-" + date.getDate();
+}
 
