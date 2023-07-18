@@ -41,6 +41,11 @@ function prefixedZero(num, size = 2) {
     while (num.length < size) num = "0" + num;
     return num;
 }
+function prefixedSpace(num, size = 2) {
+    num = num.toString();
+    while (num.length < size) num = "<span>&nbsp</span>" + num;
+    return num;
+}
 
 
 utils.data = function (data) {
@@ -48,6 +53,14 @@ utils.data = function (data) {
 }
 utils.amount = function (amt) {
     return amt ? parseFloat(amt) : 0
+}
+
+utils.rs = function (amt) {
+    amt = utils.data(parseFloat(amt));
+    if (isNaN(amt)) {
+        amt = 0;
+    }
+    return amt ? prefixedSpace(amt.toLocaleString('en-in'), 10) : 0;
 }
 
 utils.customDate = function (daycount = 0) {

@@ -14,6 +14,7 @@ function renderTranscation(data) {
     var drtotal = 0, crtotal = 0 , transferTotal = 0;
     data.forEach(each => {
         if (selectedMonth == new Date(each.date).getMonth()) {
+            each.amount = prefixedZero(each.amount, 5)
             if (each.crAcc == selectedAcc) {
                 crdata.push(each);
             } else if (each.drAcc == selectedAcc) {
@@ -33,23 +34,23 @@ function renderTranscation(data) {
         }
         crtotal += (utils.amount(eachCr.amount));
         bodyhtm += `<tr><td>${ (each.dateOfTransfer) || prefixedZero(srNo) }</td>
-        <td>${utils.data(eachDr.particular)}</td><td>${utils.data(eachDr.amount)}</td> ${editHtm}
-        <td>${utils.data(eachCr.particular)}</td><td>${utils.data(eachCr.amount)}</td> ${editHtm} </tr> `;
+        <td>${utils.data(eachDr.particular)}</td><td>${utils.rs((eachDr.amount))}</td> ${editHtm}
+        <td>${utils.data(eachCr.particular)}</td><td>${utils.rs((eachCr.amount))}</td> ${editHtm} </tr> `;
         srNo++;
         /* end  */
     });
     var totalUseAmount = drtotal + transferTotal ;
     bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
-    <td>Total Transfer </td><td>${transferTotal}</td>
+    <td>Total Transfer </td><td>${utils.rs(transferTotal)}</td>
     <td>Total Transfer </td><td> - </td>`;
 
     bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
-    <td>Total Expense </td><td>${drtotal}</td>
-    <td>Total Credit </td><td>${crtotal}</td>`;
+    <td>Total Expense </td><td>${utils.rs(drtotal)}</td>
+    <td>Total Credit </td><td>${utils.rs(crtotal)}</td>`;
 
     bodyhtm += `<tr><td> ${utils.monthEndDate()} </td>
     <td> - </td><td> - </td>
-    <td> Balance </td><td>${(crtotal - totalUseAmount)}</td>`;
+    <td> Balance </td><td>${utils.rs((crtotal - totalUseAmount))}</td>`;
 
     myTableBody.innerHTML = bodyhtm;
     initDataTable("#myTable", {})
