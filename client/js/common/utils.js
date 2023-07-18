@@ -25,8 +25,10 @@ function sendApi(method, url, data) {
 function initFormSchema(obj) {
     $('form').jsonForm(obj);
 
-    $('[name=drAcc]').select2();
-    $('[name=crAcc]').select2();
+    // $('[name=drAcc]').select2();
+    // $('[name=crAcc]').select2();
+    $('select').select2();
+
 
 }
 var table = null;

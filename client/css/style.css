@@ -28,3 +28,7 @@ td, th {
     display: flex;
     justify-content:space-between ;
 }
+
+.select2-results__option--selectable{
+    margin : 0; 
+}
