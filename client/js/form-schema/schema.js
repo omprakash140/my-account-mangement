@@ -4,7 +4,8 @@ const accList = ["Union Bank A/c", "SBI Bank A/c", "Income A/c",
     "Paytm Wallet A/c", "Jio Wallet A/c", "PhonePe Wallet A/c",
     "Paytm UPI Lite A/c", "BHIM UPI Lite A/c", "PhonePe UPI Lite A/c",
     "Shivani's A/c", "Kajal's A/c", "Geeta Devi's A/c",
-    "Abhishek's A/c", "Home Expense A/c", "Personal Expense A/c", "Cash In Hand's A/c"
+    "Abhishek's A/c", "Home Expense A/c", "Personal Expense A/c", "Cash In Hand's A/c",
+    "Salary's A/c"
 ];
 var acclistSelect = document.getElementById("acclist");
 var monthlyAccList = document.getElementById("monthlyAccList");
