@@ -29,11 +29,18 @@ function initFormSchema(obj) {
     // $('[name=crAcc]').select2();
     $('select').select2();
 
+    $('select').on('change', function(){
+        selectedAcc = acclistSelect.value;
+        selectedMonth = parseInt(monthlyAccList.value);
 
+        api.transaction();
+    })
 }
 var table = null;
 function initDataTable(id, obje) {
-    table = $(id).DataTable();
+    table = $(id).DataTable({
+        paging: false
+    });
     // table = new DataTable(id);
 }
 function prefixedZero(num, size = 2) {

@@ -13,7 +13,7 @@ function renderTranscation(data) {
     var editHtm = ``
     var drtotal = 0, crtotal = 0 , transferTotal = 0;
     data.forEach(each => {
-        if (selectedMonth == new Date(each.date).getMonth()) {
+        if ((selectedMonth == 12 ) || (selectedMonth == new Date(each.date).getMonth())) {
             each.amount = prefixedZero(each.amount, 5)
             if (each.crAcc == selectedAcc) {
                 crdata.push(each);

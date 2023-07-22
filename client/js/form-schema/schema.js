@@ -1,7 +1,7 @@
 const accList = ["Union Bank A/c", "SBI Bank A/c", "Income A/c","Salary's A/c",
     "Kotak Bank A/c", "Kotak Spendz A/c",
     "Paytm Payment Bank A/c", "Jio Payment Bank A/c",
-    "Paytm Wallet A/c", "Jio Wallet A/c", "PhonePe Wallet A/c",
+    "Paytm Wallet A/c", "Jio Wallet A/c", "PhonePe Wallet A/c","Amazon Wallet A/c",
     "Paytm UPI Lite A/c", "BHIM UPI Lite A/c", "PhonePe UPI Lite A/c",
     "Shivani's A/c", "Kajal's A/c", "Geeta Devi's A/c",
     "Abhishek's A/c", "Home Expense A/c", "Personal Expense A/c", "Cash In Hand's A/c",
@@ -14,15 +14,6 @@ var selectedMonth = new Date().getMonth();;
 accList.forEach(function (eachData) {
     acclistSelect.innerHTML += `<option value="${eachData}">${eachData}</option>`;
 })
-acclistSelect.addEventListener("change", function (e) {
-    selectedAcc = this.value;
-    console.log(selectedMonth);
-    api.transaction();
-});
-monthlyAccList.addEventListener("change", function (e) {
-    selectedMonth = parseInt(this.value);
-    api.transaction();
-});
 const schema = {
     schema: {
         drAcc: {
