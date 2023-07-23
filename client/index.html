@@ -15,21 +15,21 @@
     <header class="header">
         <h1>Bal Sheet 1.2</h1>
         <!-- <form id="update-data"><select name="acclist" id="acclist"></select><button>Apply</button></form> -->
-        <select name="acclist" id="acclist">
+        <select class="select-account-event" name="acclist" id="acclist">
         </select>
-        <select name="monthlyAccList" id="monthlyAccList">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
+        <select class="select-account-event" name="monthlyAccList" id="monthlyAccList">
+            <option value="0">Januray</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
             <option value="12">12</option>
         </select>
         <ul class="header-menu-list">
@@ -45,9 +45,10 @@
         <table id="myTable" class="display">
             <thead id="myTableHead">
                 <tr>
-                    <th>Sr No</th>
+                    <th>Date</th>
                     <th>Particular</th>
                     <th>Dr</th>
+                    <th>Date</th>
                     <th>Particular</th>
                     <th>Cr</th>
                 </tr>
@@ -70,6 +71,7 @@
     <div id="res" class="alert"></div>
     <script src="/js/common/jquery.min.js"></script>
     <script src="/js/common/js_select2.min.js"></script>
+    <script src="/js/common/auto-sugesst.js"></script>
     <script src="/js/common/utils.js"></script>
     <script src="/js/datatable/jquery.dataTables.js"></script>
     <script src="/js/form-schema/schema.js"></script>

@@ -29,11 +29,19 @@ function initFormSchema(obj) {
     // $('[name=crAcc]').select2();
     $('select').select2();
 
-    $('select').on('change', function(){
+    $('.select-account-event').on('change', function () {
         selectedAcc = acclistSelect.value;
         selectedMonth = parseInt(monthlyAccList.value);
 
         api.transaction();
+    })
+}
+
+function initAutoSuggest() {
+    Object.keys(schema.schema).forEach(name => {
+        document.querySelectorAll('input[name="' + name + '"]').forEach(each => {
+            autocomplete(each, allSuggestedText)
+        })
     })
 }
 var table = null;
@@ -41,6 +49,7 @@ function initDataTable(id, obje) {
     table = $(id).DataTable({
         paging: false
     });
+    initAutoSuggest()
     // table = new DataTable(id);
 }
 function prefixedZero(num, size = 2) {
@@ -86,6 +95,7 @@ utils.monthEndDate = function () {
 }
 
 utils.parseDateStr = function (date) {
+    date = typeof date == 'string' ? new Date(date) : date;
     return new Date().getFullYear() + "-" + prefixedZero(date.getMonth() + 1, 2) + "-" + date.getDate();
 }
 

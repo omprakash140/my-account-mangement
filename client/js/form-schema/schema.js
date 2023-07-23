@@ -14,6 +14,7 @@ var selectedMonth = new Date().getMonth();;
 accList.forEach(function (eachData) {
     acclistSelect.innerHTML += `<option value="${eachData}">${eachData}</option>`;
 })
+const allSuggestedText = [];
 const schema = {
     schema: {
         drAcc: {
@@ -35,6 +36,10 @@ const schema = {
         },
         particular: {
             title: 'Particular',
+            required: true,
+        },
+        description: {
+            title: 'Description',
             required: true,
         },
         dateOfTransfer: {
@@ -78,6 +83,10 @@ const schema = {
             type: "text"
         },
         {
+            key: 'description',
+            type: "text"
+        },
+        {
             key: 'dateOfTransfer',
             type: "date"
         },
@@ -118,6 +127,7 @@ const schema = {
             } else {
                 sendApi("POST", "/transaction", values).then(function (data) {
                     $('#res').html(JSON.stringify(data) );
+                    document.querySelector('form').reset();
                     console.log("Form Submitted", data);
                     api.transaction();
                 }).catch(function (err) {
