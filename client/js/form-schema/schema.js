@@ -127,12 +127,13 @@ const schema = {
             } else {
                 sendApi("POST", "/transaction", values).then(function (data) {
                     $('#res').html(JSON.stringify(data) );
-                    document.querySelector('form').reset();
+                    // document.querySelector('form').reset();
                     console.log("Form Submitted", data);
                     api.transaction();
                 }).catch(function (err) {
                     $('#res').html(JSON.stringify(err ));
                     alert(err.message)
+                    api.transaction();
                 });
             }
         }
